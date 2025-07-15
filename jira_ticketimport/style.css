@@ -1,0 +1,107 @@
+@keyframes ww_spinner_spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#ww_container {
+  display:inline-flex;
+
+  & #ww_import_button, #ww_help_link {
+    display: inline-block;
+    background-color: rgb(248, 73, 20);
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 3px;
+    color: white;
+    font-size: 14px;
+    padding: 3px 10px 3px 10px;
+    margin-left: 5px;
+    line-height: 22px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  & #ww_spinner {
+    border: 5px solid white;
+    border-top: 5px solid rgb(7, 71, 166);
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    animation: ww_spinner_spin 2s linear infinite;
+    margin:2px;
+    margin-left: 20px;
+  }
+  
+  & #ww_import_button:hover, #ww_help_link:hover {
+    filter: brightness(120%);
+    transition: all 0.2s ease;
+  }
+  
+  & #ww_help_link:link, #ww_help_link:visited, #ww_help_link:active {
+    text-decoration: none;
+  }
+}
+
+#ww_dialog {
+  font-size: large;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 10px 10px 40px 10px rgba(0,0,0,0.75);;
+  
+  &::backdrop {
+    background-color: rgba(0,0,0,0.15);
+    backdrop-filter: blur(1px);
+  }
+
+  &:focus {
+    border: none;
+  }
+  
+  & .cancel-button {
+    display: none;
+  }
+
+  &.show-cancel .cancel-button {
+    display: block;
+  }
+  
+  & .ww-dialog-button {
+    font-size: large;
+    font-weight: 500;
+    padding: 0.2em 0.8em;
+    border-radius: 8px;
+    border: solid 1px rgb(248, 73, 20);
+    cursor: pointer;
+
+    &.confirm-button {
+      color: white;
+      background-color: rgb(248, 73, 20);
+    }
+
+    &.cancel-button {
+      color: black;
+      background-color: rgba(255, 255, 255, 0)
+    }
+
+    &:hover {
+      filter: brightness(120%);
+      box-shadow: 0px 0px 5px 0px rgba(248, 73, 20, 0.8);
+      transition: all 0.2s ease;
+    }
+  }
+
+  & #ww_dialog_buttons {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 0.5em;
+    margin-top: 1.5em;
+  }
+
+  & .error {
+    color: red;
+    font-weight: 700;
+  }
+  & button {
+    border: none;
+  }
+}
