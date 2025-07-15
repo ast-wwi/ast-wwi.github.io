@@ -1,63 +1,97 @@
-<style>
-#clickCapture {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 20px 0 20px 0
-}
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Jira Ticketimport</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta name="description" content="" />
+		<link rel="icon" href="favicon.png" />
+		<style>
+			#clickCapture {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				margin: 20px 0 20px 0;
+			}
 
-.button-90 {
-  color: #fff;
-  padding: 15px 25px;
-  border-radius: 100px;
-  background-color: #4C43CD;
-  background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 87% at 26% 20%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
-  font-weight: bold;
-  font-size: 16px;
+			.button-90 {
+				color: #fff;
+				padding: 15px 25px;
+				border-radius: 100px;
+				background-color: #4c43cd;
+				background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%),
+					radial-gradient(
+						66% 87% at 26% 20%,
+						rgba(255, 255, 255, 0.41) 0%,
+						rgba(255, 255, 255, 0) 69.79%,
+						rgba(255, 255, 255, 0) 100%
+					);
+				font-weight: bold;
+				font-size: 16px;
 
-  border: 0;
+				border: 0;
 
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+				user-select: none;
+				-webkit-user-select: none;
+				touch-action: manipulation;
 
-  cursor: pointer;
-}
+				cursor: pointer;
+			}
 
-.button-90 a {
-   color: inherit;
-   text-decoration: inherit;
-   cursor: inhert;
-}
-</style>
-<div id="clickCapture">
-  <button class="button-90" role="button">
-    <a href="javascript:(
-      function() {
-          const targetOrigin = 'https://issues.ww-intern.de';
-          const targetOriginName = 'JIRA-Webseiten';
-          if ( window.location.origin != targetOrigin ) {
-              alert(`Das Bookmarklet kann nur auf ${targetOriginName} (${targetOrigin}) verwendet werden.`);
-              return;
-          }
-          window._ww_app_id = 'jira_ticketimport';
-          window._ww_app_baseUrl = `https://ast-wwi.github.io/jira_ticketimport/${_ww_app_id}/`;
-          window._ww_app_name = 'JIRA Ticketimport';
-          window._ww_load_js = function(jsSrcArray) {
-            jsSrcArray.forEach(function(src) {
-                let script = document.createElement('script');
-                script.src = src;
-                script.async = false;
-                script.type = 'text/javascript';
-                document.head.appendChild(script);
-                script.onerror = function() {
-                    alert(`Beim Laden der Anwendung ${_ww_app_name} ist ein Fehler aufgetreten.\n\nFEHLER: Das Skript: ${src} konnte nicht geladen werden.`);
-                }
-            });
-          };
-          _ww_load_js([_ww_app_baseUrl + 'index.js']);
-      }
-    )()">JIRA Ticketimport</a>
-  </button>
-</div>
+			.button-90 a {
+				color: inherit;
+				text-decoration: inherit;
+				cursor: inhert;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>JIRA Ticketimport</h1>
+		<div id="clickCapture">
+			<button class="button-90" role="button">
+				<a
+					href="javascript:(
+        function() {
+            const targetOrigin = 'https://issues.ww-intern.de';
+            const targetOriginName = 'JIRA-Webseiten';
+            if ( window.location.origin != targetOrigin ) {
+                alert(`Das Bookmarklet kann nur auf ${targetOriginName} (${targetOrigin}) verwendet werden.`);
+                return;
+            }
+            window._ww_app_id = 'jira_ticketimport';
+            window._ww_app_baseUrl = `https://ast-wwi.github.io/${_ww_app_id}/`;
+            window._ww_app_name = 'JIRA Ticketimport';
+            window._ww_load_js = function(jsSrcArray) {
+              jsSrcArray.forEach(function(src) {
+                  let script = document.createElement('script');
+                  script.src = src;
+                  script.async = false;
+                  script.type = 'text/javascript';
+                  document.head.appendChild(script);
+                  script.onerror = function() {
+                      alert(`Beim Laden der Anwendung ${_ww_app_name} ist ein Fehler aufgetreten.\n\nFEHLER: Das Skript: ${src} konnte nicht geladen werden.`);
+                  }
+              });
+            };
+            _ww_load_js([_ww_app_baseUrl + 'index.js']);
+        }
+      )()"
+					>JIRA Ticketimport</a
+				>
+			</button>
+		</div>
+		<script>
+			const div = document.getElementById("clickCapture");
+			div.addEventListener("click", clickCapture, true);
+			function clickCapture(event) {
+				console.log(event);
+				alert(
+					"Bitte das Bookmarklet per Drag and Drop als Lesezeichen ablegen. Eine direkte Nutzung dieses Links ist nicht möglich."
+				);
+				event.stopPropagation();
+				event.preventDefault();
+			}
+		</script>
+	</body>
+</html>

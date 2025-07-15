@@ -7,7 +7,7 @@ javascript:(
           return;
       }
       window._ww_app_id = 'jira_ticketimport';
-      window._ww_app_baseUrl = `https://ast-wwi.github.io/jira_ticketimport/${_ww_app_id}/`;
+      window._ww_app_baseUrl = `https://ast-wwi.github.io/${_ww_app_id}/`;
       window._ww_app_name = 'JIRA Ticketimport';
       window._ww_load_js = function(jsSrcArray) {
         jsSrcArray.forEach(function(src) {
