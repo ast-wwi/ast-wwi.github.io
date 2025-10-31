@@ -40,7 +40,7 @@
 		await injectStylesAndDialogHTML();
 		const jiraHeaderElement = document.querySelector(jiraHeaderSelector);
 		const jiraVersion = document.querySelector("#jira").dataset.version;
-		if (!jiraHeaderElement || !(jiraVersion.split(".")[0] <= 9)) {
+		if (!jiraHeaderElement || !(jiraVersion.split(".")[0] <= 10)) {
 			const dialogParams = {
 				mainMessage: `Aktivierung des Ticketimports nicht möglich.`,
 				messageList: [
@@ -468,6 +468,7 @@
 
 		return tickets;
 	}
+	
 	function injectStylesAndDialogHTML() {
 		var linkElement = document.createElement("link");
 		linkElement.type = "text/css";
